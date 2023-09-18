@@ -5,19 +5,8 @@ import { TbMinusVertical } from "react-icons/tb";
 import { BiBookAlt } from "react-icons/bi";
 import { Switch } from "antd";
 
-const Header = ({ toggleTheme }) => {
-  const [selsctfont, setSelectFont] = useState("San serif");
-  const fontFamily = ["San Serif", "Serif", "Mono"];
-  const handleFontChange = (e) => {
-    // setSelectFont(e.target.value);
-    if (e.target.value === "San Serif") {
-      return;
-    } else if (e.target.value === "Serif") {
-      setSelectFont(e.target.value);
-    } else if (e.target.value === "Mono") {
-      setSelectFont(e.target.value);
-    }
-  };
+const Header = ({ toggleTheme, fontData }) => {
+  //const fontFamily = ["San Serif", "Serif", "Mono"];
 
   return (
     <div>
@@ -27,19 +16,13 @@ const Header = ({ toggleTheme }) => {
             <BiBookAlt className=" text-[20px] ml-1" />
             <div className=" flex items-center h-[32px] w-[160.99px] justify-around">
               <select
-                value={selsctfont}
-                onChange={handleFontChange}
+                value={fontData.selsctfont}
+                onChange={fontData.handleFontChange}
                 className=" outline-none font-sans"
               >
-                {fontFamily.map((fontFamily) => (
-                  <option
-                    key={fontFamily}
-                    value={fontFamily}
-                    className=" text-purple-600"
-                  >
-                    {fontFamily}
-                  </option>
-                ))}
+                <option value="Inter"> San Serif</option>
+                <option value="Lora">Serif</option>
+                <option value="Inconsolata">Mono</option>
               </select>
               <TbMinusVertical />
               <div className=" cursor-pointer ">

@@ -1,6 +1,20 @@
+import { useState } from "react";
 import { BiPlay } from "react-icons/bi";
+// import { useRef } from "react";
 
 const Dictionary = ({ search }) => {
+  const [playAudio, setPlayAudio] = useState("");
+  const handlePlayAudio = () => {
+    setPlayAudio(
+      search &&
+        search[0].phonetics &&
+        search[0]?.phonetics?.filter((value) => value.audio !== "")[0]?.audio
+    );
+    const playTime = setTimeout(() => {
+      setPlayAudio((prev) => !prev);
+    }, 1000);
+    return () => clearTimeout(playTime);
+  };
   return (
     <div className="w-[327px] h-auto mt-2 mb-4 md:w-[689px] md:h-auto ">
       <div className="w-[327px] h-auto mt-2 mb-4 md:w-[689px] md:h-auto ">
@@ -17,7 +31,11 @@ const Dictionary = ({ search }) => {
           </div>
 
           <div className=" flex items-center cursor-pointer justify-center w-[48px] h-[48px] rounded-full bg-purple-300">
-            <BiPlay className=" text-purple-700 text-[30px]" />
+            <BiPlay
+              onClick={handlePlayAudio}
+              className=" text-purple-700 text-[30px]"
+            />
+            <audio src={playAudio} autoPlay></audio>
           </div>
         </div>
       </div>

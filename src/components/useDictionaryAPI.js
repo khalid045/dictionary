@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import keyboard from "./keybaord.json";
 
 const useDictionaryAPI = () => {
-  const [dicData, setDicData] = useState(null);
+  const [dicData, setDicData] = useState(keyboard);
   const [isloading, setIsLoading] = useState(false);
   const [iserror, setIsError] = useState(null);
 
