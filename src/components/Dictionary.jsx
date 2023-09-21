@@ -30,7 +30,7 @@ const Dictionary = ({ search }) => {
             </div>
           </div>
 
-          <div className=" flex items-center cursor-pointer justify-center w-[48px] h-[48px] rounded-full bg-purple-300">
+          <div className=" flex items-center cursor-pointer justify-center w-[48px] h-[48px] rounded-full bg-purple-300 border hover:border-purple-600">
             <BiPlay
               onClick={handlePlayAudio}
               className=" text-purple-700 text-[30px]"
