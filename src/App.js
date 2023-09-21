@@ -1,5 +1,5 @@
 import useDictionaryAPI from "./components/useDictionaryAPI";
-import "./app.css";
+import "./App.css";
 import Search from "./components/Search";
 import Header from "./components/Header";
 import Dictionary from "./components/Dictionary";
